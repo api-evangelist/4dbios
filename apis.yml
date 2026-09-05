@@ -1,7 +1,19 @@
 aid: 4dbios
 name: 4D Bios
-description: '4D Bios is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  4D Bios Co., Ltd. (四维生态, Hangzhou, China) is an ag-tech manufacturer of smart vertical-farming
+  systems, founded in 2018 by Dr. Gary Hua. It designs and builds fully enclosed, digitally
+  controlled plant factories — 3D, nursery, strawberry, leafy-greens and specialty lines — alongside
+  containerized grow systems, indoor grow boxes, full-control planting equipment and LED
+  horticultural lighting. The hardware is operated from the company's own software layer: the 4D
+  Cloud Platform, the 4D CUBE MS management console and 4D BOX, which combine IoT telemetry,
+  environmental and HVAC control, nutrient-solution circulation and big-data analytics for
+  year-round continuous production. 4D Bios markets a "4D Bios Open Platform API" for customers who
+  have already purchased its products and want to build their own software or hardware against the
+  platform, and invites third-party platform service providers to develop applications on the Open
+  Platform. That API has no public developer portal, reference, or machine-readable contract; the
+  Open Platform and IoT consoles are login-gated single-page applications.
+image: https://www.4d-bios.com/templates/assets/image/logo_en.svg
 url: https://raw.githubusercontent.com/api-evangelist/4dbios/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -10,8 +22,18 @@ x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-05'
 modified: '2026-09-05'
+position: Producing
 tags:
 - Company
+- Agriculture
+- Smart Agriculture
+- Vertical Farming
+- Plant Factory
+- Controlled Environment Agriculture
+- Internet of Things
+- LED Lighting
+- Hardware
+- Manufacturing
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +41,46 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/4dbios-domain-security.yml
 - type: Website
-  url: https://equityzen.com/company/4dbios
+  url: https://www.4d-bios.com/
+- type: Support
+  url: https://www.4d-bios.com/contact-us
+- type: PrivacyPolicy
+  url: https://www.4d-bios.com/privacy-policy
+- type: TermsOfService
+  url: https://www.4d-bios.com/legal-notices
+- type: Login
+  url: https://openapi.4d-bios.com/
+- type: Plans
+  url: plans/4dbios-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/4dbios-rate-limits.yml
+- type: LLMsTxt
+  url: llms/4dbios-llms.txt
+x-enrichment:
+  date: '2026-09-05'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v3
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    4D Bios names a "4D Bios Open Platform API" on its own solutions page but conditions it on
+    already having bought the hardware — "If you've purchased products from 4D Bios ... you can
+    customize functions and integrate them using the 4D Bios Open Platform API" — and publishes no
+    reference, spec or developer portal anywhere; the Open Platform console at
+    openapi.4d-bios.com answers 200 with the same 14,728-byte Ant Design Vue login shell on every
+    path including /openapi.json and /v3/api-docs.
+  evidence:
+  - url: https://www.4d-bios.com/solutions
+    status: 200
+  - url: https://openapi.4d-bios.com/openapi.json
+    status: 200
+  - url: https://www.4d-bios.com/llms.txt
+    status: 404
+  - url: https://www.4d-bios.com/.well-known/api-catalog
+    status: 404
+  checked: '2026-09-05'

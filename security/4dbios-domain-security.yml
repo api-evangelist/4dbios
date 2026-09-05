@@ -1,0 +1,43 @@
+generated: '2026-09-05'
+method: probed
+source: live DNS/TLS/HTTP probes of the 4d-bios.com registrable domain and its console hosts
+note: >-
+  The origin (Aliyun, Hangzhou) is intermittently unreachable from a US probe point — roughly one
+  request in three times out at the TCP layer. Every value below was re-probed until a real response
+  came back; an initial automated pass recorded https:false for www.4d-bios.com purely from those
+  timeouts and has been corrected here.
+hosts:
+- host: www.4d-bios.com
+  https: true
+  http_status: 200
+  server: nginx
+  hsts: true
+  hsts_header: max-age=31536000
+  hsts_max_age: 31536000
+  hsts_include_subdomains: false
+  hsts_preload: false
+- host: 4d-bios.com
+  https: true
+  http_status: 200
+  server: nginx
+- host: openapi.4d-bios.com
+  https: true
+  http_status: 200
+  note: 4D Open Platform / 4D CUBE MS console (Ant Design Vue single-page app, login-gated)
+- host: iot.4d-bios.com
+  https: true
+  http_status: 200
+  note: IoT console (single-page app, login-gated)
+- host: api.4d-bios.com
+  https: false
+  http_status: null
+  note: >-
+    DNS A record exists (120.55.48.120) but TCP connections to 80 and 443 time out from the probe
+    point; no HTTP response was ever observed.
+domains:
+- domain: 4d-bios.com
+  dnssec: false
+  caa: []
+  spf: true
+  spf_record: v=spf1 include:spf.163.com -all
+  dmarc: false

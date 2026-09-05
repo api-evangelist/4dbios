@@ -1,0 +1,20 @@
+generated: '2026-09-05'
+method: searched
+source: https://www.4d-bios.com/solutions
+limit_count: 0
+note: >-
+  No rate limits are documented. 4D Bios has no developer portal, no API reference and no public
+  documentation for the "4D Bios Open Platform API" it markets on its solutions page, so there is
+  nothing published about quotas, windows, burst behaviour, RateLimit-* / X-RateLimit-* response
+  headers, Retry-After, or the status code returned on exhaustion. Nothing could be observed on a
+  live response either: the Open Platform and IoT consoles are login-gated single-page applications
+  and api.4d-bios.com does not answer TCP from the probe point.
+rate_limits: []
+headers: []
+searched:
+- url: https://www.4d-bios.com/solutions
+  status: 200
+- url: https://openapi.4d-bios.com/
+  status: 200
+- url: https://www.4d-bios.com/llms.txt
+  status: 404

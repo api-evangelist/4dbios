@@ -1,0 +1,26 @@
+generated: '2026-09-05'
+method: searched
+source: https://www.4d-bios.com/solutions
+plan_count: 0
+currency: null
+note: >-
+  4D Bios publishes no pricing of any kind. It sells engineered plant-factory installations,
+  containerized grow systems, indoor grow boxes and LED fixtures as capital projects, and every
+  commercial path on the site is a "Become Our Partner" / "I want to build a plant factory" enquiry
+  form or a direct email address (Business@4d-bios.com for product interest, Support@4d-bios.com for
+  customer support). There is no pricing page, no plans or tiers page, no self-serve sign-up, and no
+  published price for the 4D Bios Open Platform API — access to that API is conditioned on having
+  already purchased the company's hardware. The site nav, footer and sitemap.xml
+  (https://www.4d-bios.com/sitemap.xml, HTTP 200, 22 URLs) contain no pricing URL.
+plans: []
+searched:
+- url: https://www.4d-bios.com/
+  status: 200
+- url: https://www.4d-bios.com/solutions
+  status: 200
+- url: https://www.4d-bios.com/planting-equipment
+  status: 200
+- url: https://www.4d-bios.com/contact-us
+  status: 200
+- url: https://www.4d-bios.com/sitemap.xml
+  status: 200

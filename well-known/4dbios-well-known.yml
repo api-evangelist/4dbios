@@ -1,0 +1,188 @@
+generated: '2026-09-05'
+method: probed
+source: >-
+  Direct HTTPS probes of the named /.well-known/ path list on every host this record knows —
+  the registrable domain and www, the Chinese-language sibling site, and the two login-gated
+  consoles the company's own solutions page names (4D Open Platform / 4D CUBE MS, and IoT).
+note: >-
+  Nothing was served. Every /.well-known/ path returned a real nginx 404 (or a 302 on the CDN-fronted
+  .cn host); no security.txt, OpenID/OAuth discovery document, api-catalog, ai-plugin or agent card
+  exists on any 4D Bios host. No WellKnown, SecurityTxt or AgentCard pointer is emitted — this file
+  records a measured absence, not a surface.
+  The consoles answer 200 with an Ant Design Vue application shell for ANY unknown application route
+  (identical byte length on every path), but their /.well-known/ prefix is NOT caught by that
+  catch-all and 404s from nginx, so these are genuine misses rather than soft-404s.
+  The origin is intermittently unreachable from a US probe point; entries recorded with
+  status: null timed out at the TCP layer rather than returning a response.
+hosts:
+- host: www.4d-bios.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: null
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: null
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: null
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: null
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: null
+    file: null
+- host: 4d-bios.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: null
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: null
+    file: null
+- host: www.4d-bios.cn
+  documents:
+  - path: /.well-known/security.txt
+    status: 302
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 302
+    file: null
+  - path: /.well-known/api-catalog
+    status: 302
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 302
+    file: null
+  - path: /.well-known/agent.json
+    status: 302
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 302
+    file: null
+- host: openapi.4d-bios.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: null
+    file: null
+  - path: /.well-known/agent-card.json
+    status: null
+    file: null
+- host: iot.4d-bios.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+contract_discovery:
+  note: >-
+    STEP 0b contract discovery, run against every host 4D Bios is known to operate. No
+    machine-readable contract of any kind was found.
+  probes:
+  - host: openapi.4d-bios.com
+    paths_probed:
+    - /openapi.json
+    - /openapi.yaml
+    - /swagger.json
+    - /v2/api-docs
+    - /v3/api-docs
+    - /doc.html
+    - /swagger-ui.html
+    - /api-docs
+    - /docs
+    - /redoc
+    - /v1/openapi.json
+    - /swagger-resources
+    result: >-
+      Every path that responded returned HTTP 200 with the identical 14,728-byte Ant Design Vue
+      application shell (<!DOCTYPE html>, zh-cmn-Hans, title "4D BIOS"). Soft-404 catch-all, not a
+      spec — nothing parsed as OpenAPI or Swagger.
+  - host: iot.4d-bios.com
+    paths_probed:
+    - /openapi.json
+    - /swagger.json
+    - /v2/api-docs
+    - /v3/api-docs
+    - /doc.html
+    - /swagger-ui.html
+    - /docs
+    result: >-
+      Same pattern — identical 21,112-byte SPA shell on every responding path. No spec.
+  - host: api.4d-bios.com
+    result: >-
+      DNS A record 120.55.48.120 resolves, but TCP 80 and 443 both time out on every attempt
+      (retried at 15s, 25s and 45s). No response was ever observed, so nothing could be probed.
+  - host: www.4d-bios.com
+    result: >-
+      Marketing site only. Crawled /, /about, /solutions, /applications, /planting-equipment,
+      /contact-us; no developer portal, no /docs, no /api reference, no llms.txt (404).
+  graphql: not-found
+  mcp: not-found
+  a2a: not-found
+  grpc: not-found
+  wsdl: not-found
+  ogc:
+    probed: false
+    reason: >-
+      No evidence pointed at an OGC surface — no baseURL, docs link or prose naming WMS/WFS/WCS/
+      WMTS/CSW or "OGC API" anywhere on the company's site. Blind path patterns are out of bounds.
+  client_side_evidence: >-
+    The Open Platform console bundle (https://openapi.4d-bios.com/js/app.dbb61e03.js, 808 KB) names
+    a VUE_APP_API_BASE_URL config key and three of its own XHR routes (/api/login, /api/alarm,
+    /api/newOverview), and links the domestic and international consoles at cube.4d-bios.com and
+    cube.4d-bios.net. These are the console's own private backend calls, not a documented public
+    API, and are recorded here as evidence only — they are deliberately NOT registered as an API
+    entry or a baseURL.

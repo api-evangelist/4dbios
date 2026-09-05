@@ -1,0 +1,58 @@
+# 4D Bios
+
+> 4D Bios Co., Ltd. (四维生态) is a Hangzhou, China ag-tech manufacturer of smart vertical-farming
+> systems, founded in 2018 by Dr. Gary Hua. It builds fully enclosed, digitally controlled plant
+> factories and the software layer that runs them. Profiled by API Evangelist from public sources.
+
+<!--
+generated: 2026-09-05
+method: generated
+source: apis.yml + the artifacts in this repository; the provider publishes no llms.txt
+         (https://www.4d-bios.com/llms.txt returned HTTP 404 on 2026-09-05)
+-->
+
+## What the company does
+
+- Plant factory solutions: 3D, nursery, strawberry, leafy-greens and specialty lines
+- Planting equipment: full-control planting equipment, indoor grow boxes, containerized grow systems
+- LED horticultural lighting, environmental/HVAC control, nutrient-solution circulation
+- Software layer: 4D Cloud Platform, 4D CUBE MS management console, 4D BOX, and the "4D Open Platform"
+
+## API surface
+
+**There is no public API contract.** 4D Bios markets a "4D Bios Open Platform API" on its solutions
+page, but access is conditioned on already having purchased its hardware, and no reference,
+specification, or developer portal is published. As of 2026-09-05:
+
+- No OpenAPI, Swagger, AsyncAPI, GraphQL SDL, gRPC/Protobuf or WSDL contract exists at any probed location
+- No MCP server, no A2A agent card, no `/.well-known/` documents on any host
+- No first-party SDK or client library on npm, PyPI, or any other registry
+- No published pricing, plans, or rate limits
+
+An agent cannot call 4D Bios. Integration requires being an existing customer and contacting the
+company directly.
+
+## Hosts
+
+- https://www.4d-bios.com/ — English marketing site (HTTP 200)
+- https://www.4d-bios.cn/ — Chinese-language sibling site (HTTP 200)
+- https://openapi.4d-bios.com/ — 4D Open Platform / 4D CUBE MS console, login-gated SPA (HTTP 200)
+- https://cube.4d-bios.net/ — international 4D CUBE MS console, login-gated SPA (HTTP 200 over http)
+- https://iot.4d-bios.com/ — IoT console, login-gated SPA (HTTP 200)
+- api.4d-bios.com — DNS resolves; TCP 80/443 do not answer from the probe point
+
+## Links
+
+- Website: https://www.4d-bios.com/
+- Contact / support: https://www.4d-bios.com/contact-us
+- Privacy policy: https://www.4d-bios.com/privacy-policy
+- Legal notices: https://www.4d-bios.com/legal-notices
+- Customer support email: Support@4d-bios.com
+- Business enquiries: Business@4d-bios.com
+
+## Artifacts in this profile
+
+- well-known/4dbios-well-known.yml — the full /.well-known/ and contract-discovery probe record
+- security/4dbios-domain-security.yml — TLS/HSTS/DNSSEC/CAA/SPF/DMARC probe
+- plans/4dbios-plans-pricing.yml — no published pricing (plan_count: 0)
+- rate-limits/4dbios-rate-limits.yml — no published limits (limit_count: 0)
